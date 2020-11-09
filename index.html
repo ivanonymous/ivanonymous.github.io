@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS - Digital Clock</title>
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<style type="text/css">
+		  body{
+			  background: #000;
+		  }
+		  .clock{
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  transform: translateX(-50%) translateY(-50%);
+			  color: #fff;
+			  font-size: 60px;
+			  border: 1px solid #ccc;
+			  padding: 0px 5px 0px 5px;
+			  white-space: pre;');
+		  }
+		</style>
+	</head>
+	<body>
+		<div id="MyClockDisplay" class="clock"></div>
+		<script type="text/javascript">
+ 
+			function showTime(){
+				var date = new Date();
+				var h = date.getHours() - 8; // 0 - 23
+				var m = date.getMinutes(); // 0 - 59
+				var s = date.getSeconds(); // 0 - 59
+
+				if(h < 0){
+				  h = h + 24
+				}
+
+
+				h = (h < 10) ? "0" + h : h;
+				m = (m < 10) ? "0" + m : m;
+				s = (s < 10) ? "0" + s : s;
+				
+				var time = " It's " + h + ":" + m + ":" + s + " " + " in Canberra \r\n \r\n Ivan will be up in " + (7 - h) + " hour(s)";
+				
+				if(h > 7){
+				  time = " It's " + h + ":" + m + ":" + s + " " + " in Canberra \r\n \r\n You can call Ivan now! \r\n \r\n\ You have another " +				  (22 - h) + " hour(s)";  
+          document.body.style.background = '#6f90de';				
+				}
+				
+				document.getElementById("MyClockDisplay").textContent = time;
+
+ 
+				setTimeout(showTime, 1000);
+			}
+ 
+			showTime();
+ 
+		</script>
+	</body>
+</html>
