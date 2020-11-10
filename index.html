@@ -13,9 +13,9 @@
 			  left: 50%;
 			  transform: translateX(-50%) translateY(-50%);
 			  color: #fff;
-			  font-size: 60px;
-			  border: 5px solid #ccc;
-			  padding: 0px 5px 0px 5px;
+			  font-size: 40px;
+			  border: 10px solid #ccc;
+			  padding: 15px 25px 15px 25px;
 			  white-space: pre;');
 		  }
 		</style>
@@ -26,7 +26,7 @@
  
 			function showTime(){
 				var date = new Date();
-				var h = date.getHours() + 12; // 0 - 23
+				var h = date.getHours() - 10; // 0 - 23
 				var m = date.getMinutes(); // 0 - 59
 				var s = date.getSeconds(); // 0 - 59
 
@@ -39,10 +39,10 @@
 				m = (m < 10) ? "0" + m : m;
 				s = (s < 10) ? "0" + s : s;
 				
-				var time = " It's " + h + ":" + m + ":" + s + " " + " in Canberra \r\n \r\n Ivan will be up in " + (7 - h) + " hour(s)";
+				var time = " It's " + h + ":" + m + ":" + s + " in Canberra \r\n \r\n Ivan will be up in " + (7 * 3600 - (h * 3600 + s)) + " seconds (more or less)";
 				
 				if(h > 7){
-				  time = " It's " + h + ":" + m + ":" + s + " " + " in Canberra \r\n \r\n You can call Ivan now! \r\n \r\n\ You have another " +				  (22 - h) + " hour(s)";  
+				  time = " It's " + h + ":" + m + ":" + s + " " + " in Canberra \r\n \r\n You can call Ivan now! \r\n \r\n\ And for another " + (24 * 3600 - (h * 3600 + m * 60 + s)) + " seconds (roughly)";  
           document.body.style.background = '#6f90de';				
 				}
 				
